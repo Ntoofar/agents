@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "agents": {
+    "codex": {
+      "destination": "~/.agents/skills",
+      "skills": [
+        "skills/glab"
+      ]
+    },
+    "claude-code": {
+      "destination": "~/.claude/skills",
+      "skills": [
+        "skills/glab"
+      ]
+    },
+    "pi": {
+      "destination": null,
+      "skills": []
+    }
+  }
+}

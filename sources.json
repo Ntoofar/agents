@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "repositories": [],
+  "imports": [
+    {
+      "path": "skills/glab",
+      "repository": "https://github.com/gitlabhq/gitlabhq",
+      "revision": "e3cb8a9fd23c4664b120b14468f77fd44dfdb45e",
+      "upstream_path": ".claude/skills/glab",
+      "license": "MIT",
+      "license_file": "skills/glab/LICENSE",
+      "imported_on": "2026-10-07",
+      "local_changes": "SKILL.md unchanged; upstream repository LICENSE retained alongside it."
+    }
+  ]
+}
