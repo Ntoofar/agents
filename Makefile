@@ -1,12 +1,10 @@
 .PHONY: plan sync test
 
-PYTHON ?= python3
-
 plan:
-	$(PYTHON) sync.py
+	bash sync.sh
 
 sync:
-	$(PYTHON) sync.py --apply
+	bash sync.sh --apply
 
 test:
-	$(PYTHON) -B -m unittest discover -s tests -v
+	bash tests/sync.test.sh

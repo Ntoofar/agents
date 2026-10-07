@@ -15,7 +15,7 @@ agents/
 ├── manifest.json        Each agent's destination and selected skills
 ├── sources.json         Vendor URLs/commit locks and copied-skill provenance
 ├── Makefile             plan / sync / test
-├── sync.py              Local link distribution, Python standard library only
+├── sync.sh              Local link distribution with Bash and jq
 └── tests/               Isolated filesystem and Git fixtures
 ```
 
@@ -74,15 +74,20 @@ manifest entry. Destinations must be `~/` paths inside the current user's home.
 
 ## Preview and distribute
 
-Run from this repository root with Python 3.9+ and Make installed. Git is required
-when distributing vendor skills. No dependencies are installed by these commands.
+Run from this repository root with Bash 4.4+, jq 1.6+, and GNU coreutils (`realpath`,
+`dirname`, `mkdir`, `ln`) installed. Make is optional; the shell script works
+directly. Git is required when distributing vendor skills. Tests also use Bash/jq,
+Git, Make, grep, and GNU coreutils; neither runtime nor tests require Python.
+No dependencies are installed by these commands; missing runtime commands are
+reported before home changes.
 
 ```sh
 make plan                    # Read-only checks and proposed links
 make sync                    # Explicitly create selected home symlinks
-python3 sync.py --agent codex # Preview one agent
-python3 sync.py --apply --agent codex
+bash sync.sh --agent codex    # Preview one agent, without Make or Python
+bash sync.sh --apply --agent codex
 make test                    # Temporary HOME and local Git fixtures only
+bash tests/sync.test.sh       # Run the same shell tests directly
 ```
 
 The script defaults to preview; Make's default target is `plan`. An empty manifest
